@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Senash — Brand, Packaging &amp; Digital Design</title>
+<meta name="description" content="Senash is a brand, packaging, and digital designer — identity systems, packaging, and the interfaces that carry them online. From dieline to deploy." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#0e131a" />
+<meta property="og:title" content="Senash — Brand, Packaging & Digital Design" />
+<meta property="og:description" content="Identity, packaging, and digital design work — from first sketch to shelf to screen." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2305070a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%237dd3fc'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0e131a',
+          surface: '#151b23',
+          surface2: '#1c232c',
+          frost: '#f2f6f9',
+          mute: '#98a6b3',
+          line: 'rgba(148,197,224,0.14)',
+          sky: { DEFAULT: '#7dd3fc', bright: '#22d3ee' },
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"', 'sans-serif'],
+          body: ['"Manrope"', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+        boxShadow: {
+          glow: '0 0 40px rgba(125,211,252,0.25)',
+        },
+      },
+    },
+  };
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Senash",
+  "jobTitle": "Brand, Packaging & Digital Designer"
+}
+</script>
+
+<style>
+  :root { --ease: cubic-bezier(.16,.8,.24,1); }
+  html { scroll-behavior: smooth; }
+  body { background:#0e131a; }
+
+  ::selection { background: rgba(125,211,252,.28); color:#fff; }
+  ::-webkit-scrollbar { width:10px; }
+  ::-webkit-scrollbar-track { background:#0e131a; }
+  ::-webkit-scrollbar-thumb { background:linear-gradient(#7dd3fc,#22d3ee); border-radius:10px; border:2px solid #0e131a; }
+
+  .font-display { font-family:'Space Grotesk', sans-serif; }
+  .font-mono { font-family:'JetBrains Mono', monospace; }
+
+  .grad-text {
+    background-image: linear-gradient(135deg,#7dd3fc,#22d3ee);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(125,211,252,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(125,211,252,.06) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 40%, transparent 100%);
+  }
+  .glow-orb { filter: blur(100px); }
+  .glass { background: rgba(11,15,20,.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+
+  [data-reveal] { opacity:0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  [data-reveal].in-view { opacity:1; transform:none; }
+
+  .nav-link { position:relative; }
+  .nav-link::after {
+    content:''; position:absolute; left:0; right:100%; bottom:-6px; height:1px;
+    background:linear-gradient(90deg,#7dd3fc,#22d3ee); transition:right .35s var(--ease);
+  }
+  .nav-link:hover::after, .nav-link.active::after { right:0; }
+  .nav-link.active { color:#f2f6f9; }
+
+  @keyframes pulseGlow {
+    0%,100% { box-shadow:0 0 18px rgba(125,211,252,.3), 0 0 0 rgba(34,211,238,0); }
+    50% { box-shadow:0 0 30px rgba(125,211,252,.55), 0 0 14px rgba(34,211,238,.3); }
+  }
+  .btn-primary { animation: pulseGlow 3.2s ease-in-out infinite; }
+
+  .card-hover .art, .card-hover .card-icon { transition: transform .8s var(--ease); }
+  .card-hover:hover .art { transform: scale(1.05); }
+  .card-hover:hover .card-icon { transform: scale(1.08) rotate(-2deg); }
+
+  .scanline {
+    position:absolute; inset:0; pointer-events:none;
+    background:linear-gradient(180deg, transparent, rgba(125,211,252,.14), transparent);
+    transform: translateY(-120%); transition: transform .9s var(--ease);
+  }
+  .card-hover:hover .scanline { transform: translateY(120%); }
+
+  @keyframes floatY { 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-14px);} }
+  .animate-float { animation: floatY 6s ease-in-out infinite; }
+
+  @keyframes dotPulse { 0%,100%{ opacity:1; transform:scale(1);} 50%{ opacity:.35; transform:scale(.7);} }
+  .status-dot { animation: dotPulse 2s ease-in-out infinite; }
+
+  .counter { font-variant-numeric: tabular-nums; }
+
+  #mobile-panel { transform: translateX(100%); transition: transform .5s var(--ease); }
+  #mobile-panel.open { transform: translateX(0); }
+  .mobile-link { opacity:0; transform: translateY(14px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+  #mobile-panel.open .mobile-link { opacity:1; transform:none; }
+
+  #project-modal[data-open="true"] { display:flex; }
+  #modal-panel.open { opacity:1 !important; transform:scale(1) !important; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline:2px solid #7dd3fc; outline-offset:3px; border-radius:4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration:.001ms !important; animation-iteration-count:1 !important;
+      transition-duration:.001ms !important; scroll-behavior:auto !important;
+    }
+    [data-reveal] { opacity:1 !important; transform:none !important; }
+  }
+</style>
+</head>
+
+<body class="bg-ink text-frost font-body antialiased">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-sky focus:text-ink focus:px-4 focus:py-2 focus:rounded-md focus:font-semibold">Skip to content</a>
+
+<!-- ============ BACKGROUND LAYER ============ -->
+<div aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden bg-ink">
+  <div class="absolute inset-0 bg-grid"></div>
+  <div class="glow-orb absolute -top-48 left-1/2 -translate-x-1/2 h-[560px] w-[860px] rounded-full bg-sky/15"></div>
+  <div class="glow-orb absolute top-[65vh] -right-40 h-[420px] w-[420px] rounded-full bg-sky-bright/10"></div>
+  <div class="glow-orb absolute top-[130vh] -left-32 h-[380px] w-[380px] rounded-full bg-sky/10"></div>
+</div>
+
+<!-- ============ NAV ============ -->
+<header id="site-nav" class="fixed top-0 inset-x-0 z-50">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div id="nav-inner" class="mt-4 flex items-center justify-between rounded-2xl border border-line px-5 py-3 transition-all duration-500">
+      <a href="#home" class="font-display text-lg font-semibold tracking-tight">Senash<span class="text-sky">.</span></a>
+
+      <nav class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-mute" aria-label="Primary">
+        <a href="#home" data-nav class="nav-link active hover:text-frost transition-colors">Home</a>
+        <a href="#about" data-nav class="nav-link hover:text-frost transition-colors">About</a>
+        <a href="#work" data-nav class="nav-link hover:text-frost transition-colors">Work</a>
+        <a href="#services" data-nav class="nav-link hover:text-frost transition-colors">Services</a>
+        <a href="#contact" data-nav class="nav-link hover:text-frost transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:inline-flex items-center rounded-full border border-sky/40 px-4 py-2 font-mono text-xs uppercase tracking-widest text-sky hover:bg-sky hover:text-ink transition-colors">Let's talk</a>
+        <button id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-panel" class="md:hidden relative h-9 w-9 flex flex-col items-center justify-center gap-1.5">
+          <span id="bar1" class="block h-px w-6 bg-frost transition-transform duration-300"></span>
+          <span id="bar2" class="block h-px w-6 bg-frost transition-opacity duration-300"></span>
+          <span id="bar3" class="block h-px w-6 bg-frost transition-transform duration-300"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div id="menu-backdrop" class="fixed inset-0 z-40 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-500 md:hidden"></div>
+<div id="mobile-panel" class="fixed inset-y-0 right-0 z-50 w-full max-w-xs glass border-l border-line md:hidden">
+  <div class="flex flex-col h-full p-8">
+    <div class="flex justify-end">
+      <button id="menu-close" aria-label="Close menu" class="h-9 w-9 text-3xl leading-none text-frost">&times;</button>
+    </div>
+    <nav class="mt-10 flex flex-col gap-6 font-display text-3xl" aria-label="Mobile">
+      <a href="#home" data-nav-mobile class="mobile-link">Home</a>
+      <a href="#about" data-nav-mobile class="mobile-link" style="transition-delay:.05s">About</a>
+      <a href="#work" data-nav-mobile class="mobile-link" style="transition-delay:.1s">Work</a>
+      <a href="#services" data-nav-mobile class="mobile-link" style="transition-delay:.15s">Services</a>
+      <a href="#contact" data-nav-mobile class="mobile-link" style="transition-delay:.2s">Contact</a>
+    </nav>
+    <!-- TODO: swap in your real email -->
+    <a href="mailto:hello@senash.design" class="mt-auto inline-flex items-center justify-center rounded-full bg-sky text-ink font-mono text-xs uppercase tracking-widest py-3.5">Say hello</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section id="home" class="relative flex min-h-screen items-center pt-36 pb-20 px-6 lg:px-10 overflow-hidden scroll-mt-24">
+    <div id="hero-glow" aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-0 md:opacity-100 transition-opacity duration-700"></div>
+
+    <div class="relative mx-auto max-w-7xl w-full grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-8">
+        <div data-reveal class="inline-flex items-center gap-2 rounded-full border border-line px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-mute mb-8">
+          <span class="status-dot h-1.5 w-1.5 rounded-full bg-sky-bright"></span>
+          Available for select projects — 2026
+        </div>
+
+        <h1 data-reveal style="transition-delay:.1s" class="font-display text-[15vw] leading-[0.95] sm:text-6xl lg:text-7xl xl:text-8xl font-semibold tracking-tight">
+          Design that <span class="grad-text">ships.</span>
+        </h1>
+
+        <p data-reveal style="transition-delay:.2s" class="mt-8 max-w-xl text-lg text-mute leading-relaxed">
+          I'm Senash — a brand and packaging designer who also builds the interfaces that carry those brands online. Currently designing packaging at <span class="text-frost">Mamba Fun Snacks</span>, and taking on select freelance work from dieline to deploy.
+        </p>
+
+        <div data-reveal style="transition-delay:.3s" class="mt-10 flex flex-wrap items-center gap-4">
+          <a href="#work" data-magnetic class="btn-primary inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky to-sky-bright px-7 py-3.5 font-mono text-xs uppercase tracking-widest text-ink font-semibold">
+            View my work <span aria-hidden="true">→</span>
+          </a>
+          <a href="#contact" data-magnetic class="inline-flex items-center gap-2 rounded-full border border-line px-7 py-3.5 font-mono text-xs uppercase tracking-widest hover:border-sky/50 transition-colors">
+            Contact me
+          </a>
+        </div>
+      </div>
+
+      <div data-reveal style="transition-delay:.3s" class="lg:col-span-4 relative hidden lg:block">
+        <div class="glass border border-line rounded-3xl p-6 animate-float">
+          <div class="font-mono text-[11px] uppercase tracking-widest text-mute mb-4 flex justify-between">
+            <span>Spec — 001</span><span>Rev. 2026</span>
+          </div>
+          <dl class="space-y-4 font-mono text-sm">
+            <div class="flex justify-between border-b border-line pb-3"><dt class="text-mute">Name</dt><dd>Senash</dd></div>
+            <div class="flex justify-between border-b border-line pb-3"><dt class="text-mute">Role</dt><dd class="text-right">Designer / Developer</dd></div>
+            <div class="flex justify-between border-b border-line pb-3"><dt class="text-mute">Focus</dt><dd class="text-right">Brand · Packaging · Web</dd></div>
+            <div class="flex justify-between"><dt class="text-mute">Status</dt><dd class="text-sky-bright">Active</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div aria-hidden="true" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-mute font-mono text-[10px] uppercase tracking-widest">
+      <span>Scroll</span>
+      <span class="h-8 w-px bg-gradient-to-b from-sky to-transparent"></span>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="relative px-6 lg:px-10 py-28 lg:py-36 scroll-mt-24">
+    <div class="mx-auto max-w-7xl grid lg:grid-cols-12 gap-16 items-center">
+
+      <!-- Photo -->
+      <div class="lg:col-span-4" data-reveal>
+        <div class="relative mx-auto max-w-[220px] sm:max-w-[260px] lg:max-w-[240px]">
+          <div aria-hidden="true" class="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-sky/25 via-sky-bright/10 to-transparent blur-2xl"></div>
+          <div class="relative rounded-3xl border border-line overflow-hidden shadow-glow">
+            <img src="Untitled-1.png" alt="Portrait of Senash" class="w-full h-full object-cover aspect-[4/5]" loading="lazy" />
+          </div>
+          <div aria-hidden="true" class="absolute -bottom-4 -right-4 hidden sm:flex items-center gap-2 rounded-full border border-line glass px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-sky">
+            <span class="status-dot h-2 w-2 rounded-full bg-sky"></span> Available
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div class="lg:col-span-8" data-reveal>
+        <span class="font-mono text-xs uppercase tracking-widest text-sky">01 / About</span>
+        <h2 class="font-display text-4xl sm:text-5xl font-semibold mt-4 leading-tight">Two disciplines,<br />one process.</h2>
+        <p class="mt-6 text-mute leading-relaxed">I started in packaging and print — where a design has to survive being printed, cut, folded, and held. That same discipline now shapes how I build for screens: systems that hold up, not mockups that just look good in a deck.</p>
+        <p class="mt-4 text-mute leading-relaxed">Alongside client and studio work, I study Business Studies, Accounting, and Computer Science at the A/L level — a fairly literal way to end up doing brand strategy and code in the same afternoon.</p>
+        <div class="mt-8 flex flex-wrap gap-2">
+          <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 text-mute">Brand Identity</span>
+          <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 text-mute">Packaging Systems</span>
+          <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 text-mute">UI/UX</span>
+          <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 text-mute">Front-End Dev</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <!-- Placeholder case studies below — swap titles, imagery, and data- attributes for real projects. -->
+  <section id="work" class="relative px-6 lg:px-10 py-28 lg:py-36 bg-surface/40 border-y border-line scroll-mt-24">
+    <div class="mx-auto max-w-7xl">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-16" data-reveal>
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-sky">02 / Selected Work</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-semibold mt-4">Recent projects.</h2>
+        </div>
+        <p class="max-w-sm text-mute text-sm leading-relaxed">A mix of brand, packaging, and digital work. Each card opens with its own spec sheet.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Featured -->
+        <button type="button" data-project
+          data-tag="01" data-category="Packaging Design" data-year="2026"
+          data-title="Nova — Snack Packaging System"
+          data-role="Brand &amp; Packaging Design" data-tools="Illustrator, InDesign, Photoshop"
+          data-desc="A modular packaging system for a snack brand relaunch: one dieline, six flavor variants, built to stay legible on a crowded shelf while keeping production costs down."
+          class="card-hover group relative text-left overflow-hidden rounded-3xl border border-line bg-surface p-8 md:col-span-2 min-h-[420px] flex flex-col justify-end focus-visible:outline-2" data-reveal>
+          <div class="art absolute inset-0 bg-gradient-to-br from-sky/15 via-surface to-surface2"></div>
+          <svg class="card-icon absolute right-8 top-8 h-40 w-40 text-sky/10" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 30 L50 12 L90 30 L50 48 Z"/><path d="M10 30 V72 L50 90 V48"/><path d="M90 30 V72 L50 90"/></svg>
+          <div class="scanline"></div>
+          <div class="relative z-10 font-mono flex justify-between text-[11px] text-mute mb-4"><span>#01</span><span>Packaging Design — 2026</span></div>
+          <h3 class="relative z-10 font-display text-2xl sm:text-3xl font-semibold">Nova — Snack Packaging System</h3>
+          <p class="relative z-10 mt-2 text-mute max-w-md text-sm">One dieline, six flavors, a system built to survive the shelf.</p>
+          <span class="relative z-10 mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-sky opacity-0 group-hover:opacity-100 transition-opacity">View case study <span aria-hidden="true">→</span></span>
+        </button>
+
+        <!-- Card 2 -->
+        <button type="button" data-project
+          data-tag="02" data-category="Branding" data-year="2025"
+          data-title="Kestrel — Brand Identity"
+          data-role="Logo, Type &amp; Identity System" data-tools="Illustrator, Figma"
+          data-desc="A full identity system for a fintech startup — wordmark, color logic, and a component library that kept the brand consistent from pitch deck to product."
+          class="card-hover group relative text-left overflow-hidden rounded-3xl border border-line bg-surface p-7 min-h-[340px] flex flex-col justify-end focus-visible:outline-2" data-reveal>
+          <div class="art absolute inset-0 bg-gradient-to-br from-sky-bright/15 via-surface to-surface2"></div>
+          <svg class="card-icon absolute right-6 top-6 h-28 w-28 text-sky/10" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="15" y="15" width="70" height="70" rx="8"/><path d="M15 40 H85 M40 15 V85"/></svg>
+          <div class="scanline"></div>
+          <div class="relative z-10 font-mono flex justify-between text-[11px] text-mute mb-3"><span>#02</span><span>Branding — 2025</span></div>
+          <h3 class="relative z-10 font-display text-xl font-semibold">Kestrel — Brand Identity</h3>
+          <span class="relative z-10 mt-4 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-sky opacity-0 group-hover:opacity-100 transition-opacity">View case study <span aria-hidden="true">→</span></span>
+        </button>
+
+        <!-- Card 3 -->
+        <button type="button" data-project
+          data-tag="03" data-category="Web Design" data-year="2025"
+          data-title="Loop Studio — Web Design"
+          data-role="Web Design &amp; Front-End Build" data-tools="Figma, HTML, Tailwind CSS, JavaScript"
+          data-desc="A marketing site for a creative studio — built from a Figma design system straight into a fast, accessible, hand-coded front end."
+          class="card-hover group relative text-left overflow-hidden rounded-3xl border border-line bg-surface p-7 min-h-[340px] flex flex-col justify-end focus-visible:outline-2" data-reveal>
+          <div class="art absolute inset-0 bg-gradient-to-br from-sky/15 via-surface to-surface2"></div>
+          <svg class="card-icon absolute right-6 top-6 h-28 w-28 text-sky/10" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="12" y="20" width="76" height="58" rx="6"/><path d="M12 34 H88"/><circle cx="22" cy="27" r="1.5" fill="currentColor" stroke="none"/></svg>
+          <div class="scanline"></div>
+          <div class="relative z-10 font-mono flex justify-between text-[11px] text-mute mb-3"><span>#03</span><span>Web Design — 2025</span></div>
+          <h3 class="relative z-10 font-display text-xl font-semibold">Loop Studio — Web Design</h3>
+          <span class="relative z-10 mt-4 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-sky opacity-0 group-hover:opacity-100 transition-opacity">View case study <span aria-hidden="true">→</span></span>
+        </button>
+
+        <!-- Card 4 -->
+        <button type="button" data-project
+          data-tag="04" data-category="UI/UX" data-year="2025"
+          data-title="Halo — Wallet App UX"
+          data-role="Product Design (UI/UX)" data-tools="Figma"
+          data-desc="An onboarding and payments flow redesign for a mobile wallet, focused on cutting the steps between opening the app and completing a transfer."
+          class="card-hover group relative text-left overflow-hidden rounded-3xl border border-line bg-surface p-7 min-h-[340px] flex flex-col justify-end focus-visible:outline-2" data-reveal>
+          <div class="art absolute inset-0 bg-gradient-to-br from-sky-bright/15 via-surface to-surface2"></div>
+          <svg class="card-icon absolute right-6 top-6 h-28 w-28 text-sky/10" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="28" y="10" width="44" height="80" rx="10"/><path d="M40 80 H60"/></svg>
+          <div class="scanline"></div>
+          <div class="relative z-10 font-mono flex justify-between text-[11px] text-mute mb-3"><span>#04</span><span>UI/UX — 2025</span></div>
+          <h3 class="relative z-10 font-display text-xl font-semibold">Halo — Wallet App UX</h3>
+          <span class="relative z-10 mt-4 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-sky opacity-0 group-hover:opacity-100 transition-opacity">View case study <span aria-hidden="true">→</span></span>
+        </button>
+
+        <!-- Card 5 -->
+        <button type="button" data-project
+          data-tag="05" data-category="Graphic Design" data-year="2024"
+          data-title="Verdant — Print Series"
+          data-role="Graphic Design" data-tools="Illustrator, Photoshop"
+          data-desc="A limited-run poster series for a plant-based food brand, translating a print-first visual language across packaging, posters, and social."
+          class="card-hover group relative text-left overflow-hidden rounded-3xl border border-line bg-surface p-7 min-h-[340px] flex flex-col justify-end focus-visible:outline-2" data-reveal>
+          <div class="art absolute inset-0 bg-gradient-to-br from-sky/15 via-surface to-surface2"></div>
+          <svg class="card-icon absolute right-6 top-6 h-28 w-28 text-sky/10" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="35" cy="40" r="20"/><circle cx="62" cy="60" r="14"/></svg>
+          <div class="scanline"></div>
+          <div class="relative z-10 font-mono flex justify-between text-[11px] text-mute mb-3"><span>#05</span><span>Graphic Design — 2024</span></div>
+          <h3 class="relative z-10 font-display text-xl font-semibold">Verdant — Print Series</h3>
+          <span class="relative z-10 mt-4 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-sky opacity-0 group-hover:opacity-100 transition-opacity">View case study <span aria-hidden="true">→</span></span>
+        </button>
+
+        <!-- Card 6 -->
+        <button type="button" data-project
+          data-tag="06" data-category="Digital Marketing" data-year="2024"
+          data-title="Pulse — Campaign System"
+          data-role="Digital Marketing &amp; Social Design" data-tools="Illustrator, Photoshop, After Effects"
+          data-desc="A modular social campaign system for a product launch — a template kit that let a small team ship consistent creative across five channels."
+          class="card-hover group relative text-left overflow-hidden rounded-3xl border border-line bg-surface p-7 min-h-[340px] flex flex-col justify-end focus-visible:outline-2" data-reveal>
+          <div class="art absolute inset-0 bg-gradient-to-br from-sky-bright/15 via-surface to-surface2"></div>
+          <svg class="card-icon absolute right-6 top-6 h-28 w-28 text-sky/10" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 60 L15 40 L55 20 V80 L15 60 Z"/><path d="M60 38 Q75 50 60 62"/></svg>
+          <div class="scanline"></div>
+          <div class="relative z-10 font-mono flex justify-between text-[11px] text-mute mb-3"><span>#06</span><span>Digital Marketing — 2024</span></div>
+          <h3 class="relative z-10 font-display text-xl font-semibold">Pulse — Campaign System</h3>
+          <span class="relative z-10 mt-4 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-sky opacity-0 group-hover:opacity-100 transition-opacity">View case study <span aria-hidden="true">→</span></span>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services" class="relative px-6 lg:px-10 py-28 lg:py-36 scroll-mt-24">
+    <div class="mx-auto max-w-7xl">
+      <div data-reveal class="mb-16 max-w-xl">
+        <span class="font-mono text-xs uppercase tracking-widest text-sky">03 / Services</span>
+        <h2 class="font-display text-4xl sm:text-5xl font-semibold mt-4">What I do.</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Service card template repeats below -->
+        <div data-reveal class="group relative rounded-2xl border border-line p-7 hover:border-sky/40 transition-colors">
+          <div class="h-11 w-11 rounded-xl bg-surface2 border border-line flex items-center justify-center text-sky">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="8" r="4"/><circle cx="15" cy="15" r="4"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-semibold mt-5">Graphic Design</h3>
+          <p class="mt-2 text-sm text-mute leading-relaxed">Posters, print collateral, and visual systems that hold together across every touchpoint.</p>
+          <span class="absolute bottom-0 left-7 right-7 h-px bg-gradient-to-r from-sky to-sky-bright scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></span>
+        </div>
+
+        <div data-reveal style="transition-delay:.05s" class="group relative rounded-2xl border border-line p-7 hover:border-sky/40 transition-colors">
+          <div class="h-11 w-11 rounded-xl bg-surface2 border border-line flex items-center justify-center text-sky">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 L21 8 V16 L12 21 L3 16 V8 Z"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-semibold mt-5">Branding</h3>
+          <p class="mt-2 text-sm text-mute leading-relaxed">Identity systems — logo, type, color, and the rules that keep them consistent.</p>
+          <span class="absolute bottom-0 left-7 right-7 h-px bg-gradient-to-r from-sky to-sky-bright scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></span>
+        </div>
+
+        <div data-reveal style="transition-delay:.1s" class="group relative rounded-2xl border border-line p-7 hover:border-sky/40 transition-colors">
+          <div class="h-11 w-11 rounded-xl bg-surface2 border border-line flex items-center justify-center text-sky">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8 L12 4 L20 8 L12 12 Z"/><path d="M4 8 V17 L12 21 V12"/><path d="M20 8 V17 L12 21"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-semibold mt-5">Packaging Design</h3>
+          <p class="mt-2 text-sm text-mute leading-relaxed">Dielines and structural thinking — packaging built to survive production and the shelf.</p>
+          <span class="absolute bottom-0 left-7 right-7 h-px bg-gradient-to-r from-sky to-sky-bright scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></span>
+        </div>
+
+        <div data-reveal style="transition-delay:.15s" class="group relative rounded-2xl border border-line p-7 hover:border-sky/40 transition-colors">
+          <div class="h-11 w-11 rounded-xl bg-surface2 border border-line flex items-center justify-center text-sky">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18 H13"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-semibold mt-5">UI/UX Design</h3>
+          <p class="mt-2 text-sm text-mute leading-relaxed">Interfaces designed around how people actually use them, not just how they look in Figma.</p>
+          <span class="absolute bottom-0 left-7 right-7 h-px bg-gradient-to-r from-sky to-sky-bright scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></span>
+        </div>
+
+        <div data-reveal style="transition-delay:.2s" class="group relative rounded-2xl border border-line p-7 hover:border-sky/40 transition-colors">
+          <div class="h-11 w-11 rounded-xl bg-surface2 border border-line flex items-center justify-center text-sky">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 18 L4 6 L20 6"/><path d="M8 18 L8 10 M13 18 L13 8 M18 18 L18 12"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-semibold mt-5">Web Development</h3>
+          <p class="mt-2 text-sm text-mute leading-relaxed">Responsive, accessible front ends — built with HTML, CSS, JavaScript, and Tailwind.</p>
+          <span class="absolute bottom-0 left-7 right-7 h-px bg-gradient-to-r from-sky to-sky-bright scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></span>
+        </div>
+
+        <div data-reveal style="transition-delay:.25s" class="group relative rounded-2xl border border-line p-7 hover:border-sky/40 transition-colors">
+          <div class="h-11 w-11 rounded-xl bg-surface2 border border-line flex items-center justify-center text-sky">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 11 L3 13 L7 13 L13 18 V6 L7 11 Z"/><path d="M16 9 Q19 12 16 15"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-semibold mt-5">Digital Marketing</h3>
+          <p class="mt-2 text-sm text-mute leading-relaxed">Campaign assets and social systems that extend a brand beyond the shelf and the screen.</p>
+          <span class="absolute bottom-0 left-7 right-7 h-px bg-gradient-to-r from-sky to-sky-bright scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS / TOOLS ============ -->
+  <section id="skills" class="relative px-6 lg:px-10 py-24 border-y border-line bg-surface/40 scroll-mt-24">
+    <div class="mx-auto max-w-7xl">
+      <div data-reveal class="mb-12 max-w-xl">
+        <span class="font-mono text-xs uppercase tracking-widest text-sky">04 / Tools</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-semibold mt-4">What I build with.</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-10">
+        <div data-reveal>
+          <p class="font-mono text-xs uppercase tracking-widest text-mute mb-4">Design</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">Adobe Illustrator</span>
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">Adobe Photoshop</span>
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">Adobe InDesign</span>
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">Figma</span>
+          </div>
+        </div>
+        <div data-reveal style="transition-delay:.1s">
+          <p class="font-mono text-xs uppercase tracking-widest text-mute mb-4">Development</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">HTML</span>
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">CSS</span>
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">JavaScript</span>
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">Tailwind CSS</span>
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">Git</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <!-- Placeholder numbers — update data-count-to with real figures. -->
+  <section id="stats" class="relative px-6 lg:px-10 py-24 scroll-mt-24">
+    <div class="mx-auto max-w-7xl grid grid-cols-2 md:grid-cols-4 gap-10">
+      <div data-reveal class="text-center md:text-left">
+        <span class="counter font-display text-5xl sm:text-6xl font-semibold grad-text" data-count-to="40">0</span><span class="grad-text font-display text-5xl sm:text-6xl font-semibold">+</span>
+        <p class="mt-2 font-mono text-xs uppercase tracking-widest text-mute">Projects completed</p>
+      </div>
+      <div data-reveal style="transition-delay:.05s" class="text-center md:text-left">
+        <span class="counter font-display text-5xl sm:text-6xl font-semibold grad-text" data-count-to="3">0</span><span class="grad-text font-display text-5xl sm:text-6xl font-semibold">+</span>
+        <p class="mt-2 font-mono text-xs uppercase tracking-widest text-mute">Years designing</p>
+      </div>
+      <div data-reveal style="transition-delay:.1s" class="text-center md:text-left">
+        <span class="counter font-display text-5xl sm:text-6xl font-semibold grad-text" data-count-to="12">0</span><span class="grad-text font-display text-5xl sm:text-6xl font-semibold">+</span>
+        <p class="mt-2 font-mono text-xs uppercase tracking-widest text-mute">Happy clients</p>
+      </div>
+      <div data-reveal style="transition-delay:.15s" class="text-center md:text-left">
+        <span class="counter font-display text-5xl sm:text-6xl font-semibold grad-text" data-count-to="150">0</span><span class="grad-text font-display text-5xl sm:text-6xl font-semibold">+</span>
+        <p class="mt-2 font-mono text-xs uppercase tracking-widest text-mute">Assets shipped</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="relative px-6 lg:px-10 py-28 lg:py-36 border-t border-line scroll-mt-24">
+    <div class="mx-auto max-w-4xl text-center" data-reveal>
+      <span class="font-mono text-xs uppercase tracking-widest text-sky">05 / Contact</span>
+      <h2 class="font-display text-4xl sm:text-6xl font-semibold mt-4">Let's build something<br />that ships.</h2>
+      <p class="mt-6 text-mute max-w-xl mx-auto leading-relaxed">Have a brand, a product, or a packaging problem that needs solving end to end? I'd like to hear about it.</p>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <!-- TODO: swap in your real email -->
+        <a href="mailto:hello@senash.design" data-magnetic class="btn-primary inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky to-sky-bright px-8 py-4 font-mono text-xs uppercase tracking-widest text-ink font-semibold">
+          Say hello <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- TODO: swap in your real profile links -->
+      <div class="mt-8 flex justify-center flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-widest text-mute">
+        <a href="#" class="hover:text-sky transition-colors">LinkedIn</a>
+        <span aria-hidden="true">·</span>
+        <a href="#" class="hover:text-sky transition-colors">Behance</a>
+        <span aria-hidden="true">·</span>
+        <a href="#" class="hover:text-sky transition-colors">Instagram</a>
+        <span aria-hidden="true">·</span>
+        <a href="#" class="hover:text-sky transition-colors">GitHub</a>
+      </div>
+    </div>
+
+    <!-- Optional contact form — wire the `action` up to a form endpoint (e.g. Formspree) to make it functional. -->
+    <form class="mx-auto max-w-2xl mt-20 grid sm:grid-cols-2 gap-5" onsubmit="return false;" data-reveal>
+      <div class="sm:col-span-1">
+        <label for="name" class="sr-only">Name</label>
+        <input id="name" name="name" type="text" placeholder="Name" required class="w-full rounded-xl border border-line bg-surface px-4 py-3.5 text-sm placeholder:text-mute focus:border-sky/50 transition-colors" />
+      </div>
+      <div class="sm:col-span-1">
+        <label for="email" class="sr-only">Email</label>
+        <input id="email" name="email" type="email" placeholder="Email" required class="w-full rounded-xl border border-line bg-surface px-4 py-3.5 text-sm placeholder:text-mute focus:border-sky/50 transition-colors" />
+      </div>
+      <div class="sm:col-span-2">
+        <label for="message" class="sr-only">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Tell me about the project" required class="w-full rounded-xl border border-line bg-surface px-4 py-3.5 text-sm placeholder:text-mute focus:border-sky/50 transition-colors resize-none"></textarea>
+      </div>
+      <div class="sm:col-span-2 flex justify-center">
+        <button type="submit" class="inline-flex items-center gap-2 rounded-full border border-line px-8 py-3.5 font-mono text-xs uppercase tracking-widest hover:border-sky/50 transition-colors">Send message</button>
+      </div>
+    </form>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="relative border-t border-line px-6 lg:px-10 py-12">
+  <div class="mx-auto max-w-7xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
+    <div>
+      <a href="#home" class="font-display text-lg font-semibold">Senash<span class="text-sky">.</span></a>
+      <p class="mt-2 text-sm text-mute">Design that ships. Based in Sri Lanka.</p>
+    </div>
+    <nav class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-widest text-mute" aria-label="Footer">
+      <a href="#about" class="hover:text-sky transition-colors">About</a>
+      <a href="#work" class="hover:text-sky transition-colors">Work</a>
+      <a href="#services" class="hover:text-sky transition-colors">Services</a>
+      <a href="#contact" class="hover:text-sky transition-colors">Contact</a>
+    </nav>
+    <div class="font-mono text-xs text-mute">&copy; <span id="year"></span> Senash. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- ============ PROJECT MODAL ============ -->
+<div id="project-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-8" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div id="modal-backdrop" class="absolute inset-0 bg-ink/90 backdrop-blur-sm"></div>
+  <div id="modal-panel" class="relative z-10 w-full max-w-2xl glass border border-line rounded-3xl p-8 sm:p-10 opacity-0 scale-95 transition-all duration-400">
+    <button id="modal-close" aria-label="Close project details" class="absolute top-6 right-6 h-9 w-9 rounded-full border border-line flex items-center justify-center hover:border-sky/50 transition-colors">&times;</button>
+    <div class="font-mono flex flex-wrap gap-4 text-[11px] text-mute mb-6">
+      <span id="modal-tag">#01</span><span id="modal-category">Category</span><span id="modal-year">Year</span>
+    </div>
+    <h3 id="modal-title" class="font-display text-3xl font-semibold mb-4">Title</h3>
+    <p id="modal-desc" class="text-mute leading-relaxed mb-8">Description</p>
+    <div class="grid sm:grid-cols-2 gap-6 border-t border-line pt-6 font-mono text-xs">
+      <div><dt class="text-mute uppercase tracking-widest mb-1">Role</dt><dd id="modal-role"></dd></div>
+      <div><dt class="text-mute uppercase tracking-widest mb-1">Tools</dt><dd id="modal-tools"></dd></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---- Sticky nav: glass state on scroll ----
+  var navInner = document.getElementById('nav-inner');
+  function onScrollNav() {
+    if (window.scrollY > 24) {
+      navInner.classList.add('glass', 'shadow-glow');
+    } else {
+      navInner.classList.remove('glass', 'shadow-glow');
+    }
+  }
+  onScrollNav();
+  window.addEventListener('scroll', onScrollNav, { passive: true });
+
+  // ---- Active nav link tracking ----
+  var sections = ['home', 'about', 'work', 'services', 'contact'].map(function (id) {
+    return document.getElementById(id);
+  }).filter(Boolean);
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('[data-nav]'));
+  if ('IntersectionObserver' in window && sections.length) {
+    var navObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          navLinks.forEach(function (link) {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function (s) { navObserver.observe(s); });
+  }
+
+  // ---- Mobile menu ----
+  var menuBtn = document.getElementById('menu-btn');
+  var menuClose = document.getElementById('menu-close');
+  var panel = document.getElementById('mobile-panel');
+  var backdrop = document.getElementById('menu-backdrop');
+  var bar1 = document.getElementById('bar1'), bar2 = document.getElementById('bar2'), bar3 = document.getElementById('bar3');
+
+  function openMenu() {
+    panel.classList.add('open');
+    backdrop.classList.remove('opacity-0', 'pointer-events-none');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    document.documentElement.style.overflow = 'hidden';
+    bar1.style.transform = 'translateY(6px) rotate(45deg)';
+    bar3.style.transform = 'translateY(-6px) rotate(-45deg)';
+    bar2.style.opacity = '0';
+    menuClose.focus();
+  }
+  function closeMenu() {
+    panel.classList.remove('open');
+    backdrop.classList.add('opacity-0', 'pointer-events-none');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.documentElement.style.overflow = '';
+    bar1.style.transform = ''; bar3.style.transform = ''; bar2.style.opacity = '';
+    menuBtn.focus();
+  }
+  menuBtn.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  document.querySelectorAll('[data-nav-mobile]').forEach(function (link) {
+    link.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && panel.classList.contains('open')) closeMenu();
+  });
+
+  // ---- Scroll reveal ----
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+
+  // ---- Hero cursor glow ----
+  var hero = document.getElementById('home');
+  var heroGlow = document.getElementById('hero-glow');
+  if (hero && heroGlow && !reduceMotion) {
+    hero.addEventListener('mousemove', function (e) {
+      var rect = hero.getBoundingClientRect();
+      var x = ((e.clientX - rect.left) / rect.width) * 100;
+      var y = ((e.clientY - rect.top) / rect.height) * 100;
+      heroGlow.style.background = 'radial-gradient(600px circle at ' + x + '% ' + y + '%, rgba(125,211,252,0.12), transparent 60%)';
+    });
+  }
+
+  // ---- Magnetic buttons ----
+  if (!reduceMotion) {
+    document.querySelectorAll('[data-magnetic]').forEach(function (btn) {
+      btn.addEventListener('mousemove', function (e) {
+        var rect = btn.getBoundingClientRect();
+        var x = e.clientX - rect.left - rect.width / 2;
+        var y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = 'translate(' + (x * 0.2) + 'px,' + (y * 0.3) + 'px)';
+      });
+      btn.addEventListener('mouseleave', function () {
+        btn.style.transform = '';
+      });
+    });
+  }
+
+  // ---- Stat counters ----
+  var statCounters = Array.prototype.slice.call(document.querySelectorAll('[data-count-to]'));
+  function animateCounter(el) {
+    var target = parseInt(el.getAttribute('data-count-to'), 10) || 0;
+    if (reduceMotion) { el.textContent = target; return; }
+    var start = null, duration = 1600;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window && statCounters.length) {
+    var statObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          statObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    statCounters.forEach(function (el) { statObserver.observe(el); });
+  }
+
+  // ---- Project modal ----
+  var modal = document.getElementById('project-modal');
+  var modalPanel = document.getElementById('modal-panel');
+  var modalClose = document.getElementById('modal-close');
+  var modalBackdrop = document.getElementById('modal-backdrop');
+  var lastTrigger = null;
+
+  function openModal(card) {
+    lastTrigger = card;
+    document.getElementById('modal-tag').textContent = '#' + (card.getAttribute('data-tag') || '');
+    document.getElementById('modal-category').textContent = card.getAttribute('data-category') || '';
+    document.getElementById('modal-year').textContent = card.getAttribute('data-year') || '';
+    document.getElementById('modal-title').textContent = card.getAttribute('data-title') || '';
+    document.getElementById('modal-desc').textContent = card.getAttribute('data-desc') || '';
+    document.getElementById('modal-role').textContent = card.getAttribute('data-role') || '';
+    document.getElementById('modal-tools').textContent = card.getAttribute('data-tools') || '';
+
+    modal.dataset.open = 'true';
+    document.documentElement.style.overflow = 'hidden';
+    requestAnimationFrame(function () { modalPanel.classList.add('open'); });
+    modalClose.focus();
+  }
+  function closeModal() {
+    modalPanel.classList.remove('open');
+    document.documentElement.style.overflow = '';
+    setTimeout(function () { modal.dataset.open = 'false'; }, reduceMotion ? 0 : 350);
+    if (lastTrigger) lastTrigger.focus();
+  }
+  document.querySelectorAll('[data-project]').forEach(function (card) {
+    card.addEventListener('click', function () { openModal(card); });
+  });
+  modalClose.addEventListener('click', closeModal);
+  modalBackdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.dataset.open === 'true') closeModal();
+  });
+})();
+</script>
+
+</body>
+</html>
