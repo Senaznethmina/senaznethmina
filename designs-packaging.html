@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Packaging Design — Senash</title>
+<meta name="description" content="Packaging design work by Senash — dielines and structural systems built to hold up on the shelf." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#0e131a" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2305070a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%237dd3fc'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0e131a',
+          surface: '#151b23',
+          surface2: '#1c232c',
+          frost: '#f2f6f9',
+          mute: '#98a6b3',
+          line: 'rgba(148,197,224,0.14)',
+          sky: { DEFAULT: '#7dd3fc', bright: '#22d3ee' },
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"', 'sans-serif'],
+          body: ['"Manrope"', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root { --ease: cubic-bezier(.16,.8,.24,1); }
+  html { scroll-behavior: smooth; }
+  body { background:#0e131a; }
+  ::selection { background: rgba(125,211,252,.28); color:#fff; }
+  ::-webkit-scrollbar { width:10px; }
+  ::-webkit-scrollbar-track { background:#0e131a; }
+  ::-webkit-scrollbar-thumb { background:linear-gradient(#7dd3fc,#22d3ee); border-radius:10px; border:2px solid #0e131a; }
+  .font-display { font-family:'Space Grotesk', sans-serif; }
+  .font-mono { font-family:'JetBrains Mono', monospace; }
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(125,211,252,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(125,211,252,.06) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 40%, transparent 100%);
+  }
+  .glow-orb { filter: blur(100px); }
+  [data-reveal] { opacity:0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+  [data-reveal].in-view { opacity:1; transform:none; }
+  .art-card { transition: transform .8s var(--ease); }
+  .art-hover:hover .art-card { transform: scale(1.04); }
+  a:focus-visible, button:focus-visible { outline:2px solid #7dd3fc; outline-offset:3px; border-radius:4px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+    [data-reveal] { opacity:1 !important; transform:none !important; }
+  }
+</style>
+</head>
+
+<body class="bg-ink text-frost font-body antialiased">
+
+<div aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden bg-ink">
+  <div class="absolute inset-0 bg-grid"></div>
+  <div class="glow-orb absolute -top-48 left-1/2 -translate-x-1/2 h-[560px] w-[860px] rounded-full bg-sky/15"></div>
+  <div class="glow-orb absolute top-[65vh] -right-40 h-[420px] w-[420px] rounded-full bg-sky-bright/10"></div>
+</div>
+
+<main class="relative px-6 lg:px-10 py-16 lg:py-20 max-w-6xl mx-auto">
+
+  <div class="flex items-center gap-4 mb-3" data-reveal>
+    <a href="index.html#designs" aria-label="Back to Designs" class="shrink-0 h-9 w-9 rounded-full border border-line flex items-center justify-center text-sky hover:border-sky/50 transition-colors">
+      <span aria-hidden="true">←</span>
+    </a>
+    <h1 class="font-display text-2xl sm:text-3xl font-semibold whitespace-nowrap"><span class="text-sky">/</span> Packaging Design</h1>
+    <span aria-hidden="true" class="hidden sm:block h-px flex-1 bg-line"></span>
+  </div>
+  <p class="text-mute text-sm sm:text-base max-w-xl mb-12" data-reveal style="transition-delay:.05s">Dielines and structural packaging systems — built to survive production and hold up on a crowded shelf.</p>
+
+  <!-- Placeholder tiles below — replace each .gallery-art div's contents with a real <img src="..." alt="..." class="w-full h-full object-cover" /> -->
+  <div class="columns-1 sm:columns-2 gap-6">
+
+    <div class="art-hover break-inside-avoid mb-6 rounded-2xl border border-line bg-surface overflow-hidden" data-reveal>
+      <div class="gallery-art art-card aspect-[4/5] bg-gradient-to-br from-sky/15 via-surface to-surface2 flex flex-col items-center justify-center gap-3">
+        <svg class="h-8 w-8 text-sky/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 8 12 4l8 4-8 4Z"/><path d="M4 8v8l8 4v-8"/><path d="M20 8v8l-8 4"/></svg>
+        <span class="font-mono text-[10px] uppercase tracking-widest text-mute"> <img src="7nlmndql.png" alt="pkg1"</span>
+      </div>
+    </div>
+
+    <div class="art-hover break-inside-avoid mb-6 rounded-2xl border border-line bg-surface overflow-hidden" data-reveal style="transition-delay:.05s">
+      <div class="gallery-art art-card aspect-square bg-gradient-to-br from-sky-bright/15 via-surface to-surface2 flex flex-col items-center justify-center gap-3">
+        <svg class="h-8 w-8 text-sky/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 8 12 4l8 4-8 4Z"/><path d="M4 8v8l8 4v-8"/><path d="M20 8v8l-8 4"/></svg>
+        <span class="font-mono text-[10px] uppercase tracking-widest text-mute">packaging-02.jpg</span>
+      </div>
+    </div>
+
+    <div class="art-hover break-inside-avoid mb-6 rounded-2xl border border-line bg-surface overflow-hidden" data-reveal style="transition-delay:.1s">
+      <div class="gallery-art art-card aspect-[3/4] bg-gradient-to-br from-sky/15 via-surface to-surface2 flex flex-col items-center justify-center gap-3">
+        <svg class="h-8 w-8 text-sky/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 8 12 4l8 4-8 4Z"/><path d="M4 8v8l8 4v-8"/><path d="M20 8v8l-8 4"/></svg>
+        <span class="font-mono text-[10px] uppercase tracking-widest text-mute">packaging-03.jpg</span>
+      </div>
+    </div>
+
+    <div class="art-hover break-inside-avoid mb-6 rounded-2xl border border-line bg-surface overflow-hidden" data-reveal>
+      <div class="gallery-art art-card aspect-[5/4] bg-gradient-to-br from-sky-bright/15 via-surface to-surface2 flex flex-col items-center justify-center gap-3">
+        <svg class="h-8 w-8 text-sky/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 8 12 4l8 4-8 4Z"/><path d="M4 8v8l8 4v-8"/><path d="M20 8v8l-8 4"/></svg>
+        <span class="font-mono text-[10px] uppercase tracking-widest text-mute">packaging-04.jpg</span>
+      </div>
+    </div>
+
+    <div class="art-hover break-inside-avoid mb-6 rounded-2xl border border-line bg-surface overflow-hidden" data-reveal style="transition-delay:.05s">
+      <div class="gallery-art art-card aspect-[4/6] bg-gradient-to-br from-sky/15 via-surface to-surface2 flex flex-col items-center justify-center gap-3">
+        <svg class="h-8 w-8 text-sky/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 8 12 4l8 4-8 4Z"/><path d="M4 8v8l8 4v-8"/><path d="M20 8v8l-8 4"/></svg>
+        <span class="font-mono text-[10px] uppercase tracking-widest text-mute">packaging-05.jpg</span>
+      </div>
+    </div>
+
+    <div class="art-hover break-inside-avoid mb-6 rounded-2xl border border-line bg-surface overflow-hidden" data-reveal style="transition-delay:.1s">
+      <div class="gallery-art art-card aspect-[4/5] bg-gradient-to-br from-sky-bright/15 via-surface to-surface2 flex flex-col items-center justify-center gap-3">
+        <svg class="h-8 w-8 text-sky/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 8 12 4l8 4-8 4Z"/><path d="M4 8v8l8 4v-8"/><path d="M20 8v8l-8 4"/></svg>
+        <span class="font-mono text-[10px] uppercase tracking-widest text-mute">packaging-06.jpg</span>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in-view'); revealObserver.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+</script>
+
+</body>
+</html>

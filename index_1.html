@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Senash — Brand, Packaging &amp; Digital Design</title>
+<meta name="description" content="Senash is a brand, packaging, and digital designer — identity systems, packaging, and the interfaces that carry them online. From dieline to deploy." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#0e131a" />
+<meta property="og:title" content="Senash — Brand, Packaging & Digital Design" />
+<meta property="og:description" content="Identity, packaging, and digital design work — from first sketch to shelf to screen." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2305070a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%237dd3fc'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0e131a',
+          surface: '#151b23',
+          surface2: '#1c232c',
+          frost: '#f2f6f9',
+          mute: '#98a6b3',
+          line: 'rgba(148,197,224,0.14)',
+          sky: { DEFAULT: '#7dd3fc', bright: '#22d3ee' },
+        },
+        fontFamily: {
+          display: ['"Manrope"', 'sans-serif'],
+          body: ['"Manrope"', 'sans-serif'],
+          mono: ['"Space Grotesk"', 'sans-serif'],
+        },
+        boxShadow: {
+          glow: '0 0 40px rgba(125,211,252,0.25)',
+        },
+      },
+    },
+  };
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Senash",
+  "jobTitle": "Brand, Packaging & Digital Designer"
+}
+</script>
+
+<style>
+  :root { --ease: cubic-bezier(.16,.8,.24,1); }
+  html { scroll-behavior: smooth; }
+  body { background:#0e131a; }
+
+  ::selection { background: rgba(125,211,252,.28); color:#fff; }
+  ::-webkit-scrollbar { width:10px; }
+  ::-webkit-scrollbar-track { background:#0e131a; }
+  ::-webkit-scrollbar-thumb { background:linear-gradient(#7dd3fc,#22d3ee); border-radius:10px; border:2px solid #0e131a; }
+
+  .font-display { font-family:'Space Grotesk', sans-serif; }
+  .font-mono { font-family:'JetBrains Mono', monospace; }
+
+  .grad-text {
+    background-image: linear-gradient(135deg,#7dd3fc,#22d3ee);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(125,211,252,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(125,211,252,.06) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 40%, transparent 100%);
+  }
+  .glow-orb { filter: blur(100px); }
+  .glass { background: rgba(11,15,20,.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+
+  [data-reveal] { opacity:0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  [data-reveal].in-view { opacity:1; transform:none; }
+
+  .nav-link { position:relative; }
+  .nav-link::after {
+    content:''; position:absolute; left:0; right:100%; bottom:-6px; height:1px;
+    background:linear-gradient(90deg,#7dd3fc,#22d3ee); transition:right .35s var(--ease);
+  }
+  .nav-link:hover::after, .nav-link.active::after { right:0; }
+  .nav-link.active { color:#f2f6f9; }
+
+  @keyframes pulseGlow {
+    0%,100% { box-shadow:0 0 18px rgba(125,211,252,.3), 0 0 0 rgba(34,211,238,0); }
+    50% { box-shadow:0 0 30px rgba(125,211,252,.55), 0 0 14px rgba(34,211,238,.3); }
+  }
+  .btn-primary { animation: pulseGlow 3.2s ease-in-out infinite; }
+
+  .card-hover .art, .card-hover .card-icon { transition: transform .8s var(--ease); }
+  .card-hover:hover .art { transform: scale(1.05); }
+  .card-hover:hover .card-icon { transform: scale(1.08) rotate(-2deg); }
+
+  .scanline {
+    position:absolute; inset:0; pointer-events:none;
+    background:linear-gradient(180deg, transparent, rgba(125,211,252,.14), transparent);
+    transform: translateY(-120%); transition: transform .9s var(--ease);
+  }
+  .card-hover:hover .scanline { transform: translateY(120%); }
+
+  @keyframes floatY { 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-14px);} }
+  .animate-float { animation: floatY 6s ease-in-out infinite; }
+
+  @keyframes blinkCursor { 0%,49%{ opacity:1; } 50%,100%{ opacity:0; } }
+  .hero-cursor {
+    display:inline-block; margin-left:2px; font-weight:400;
+    background-image: linear-gradient(135deg,#7dd3fc,#22d3ee);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: blinkCursor 1s step-end infinite;
+  }
+
+  @keyframes dotPulse { 0%,100%{ opacity:1; transform:scale(1);} 50%{ opacity:.35; transform:scale(.7);} }
+  .status-dot { animation: dotPulse 2s ease-in-out infinite; }
+
+  .counter { font-variant-numeric: tabular-nums; }
+
+  #mobile-panel { transform: translateX(100%); transition: transform .5s var(--ease); }
+  #mobile-panel.open { transform: translateX(0); }
+  .mobile-link { opacity:0; transform: translateY(14px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+  #mobile-panel.open .mobile-link { opacity:1; transform:none; }
+
+  .exp-tab:hover { border-color: rgba(125,211,252,.35); }
+  .exp-tab.active { border-color: rgba(125,211,252,.5); background: rgba(28,35,44,.9); }
+  .exp-tab.active .exp-tab-name { color:#7dd3fc; }
+  .exp-panel { opacity:0; transform: translateY(10px); transition: opacity .45s var(--ease), transform .45s var(--ease); }
+  .exp-panel.in { opacity:1; transform:none; }
+
+  .design-filter { color:#98a6b3; }
+  .design-filter.active { border-color: rgba(125,211,252,.5); background: rgba(125,211,252,.12); color:#f2f6f9; }
+
+  #project-modal[data-open="true"] { display:flex; }
+  #modal-panel.open { opacity:1 !important; transform:scale(1) !important; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline:2px solid #7dd3fc; outline-offset:3px; border-radius:4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration:.001ms !important; animation-iteration-count:1 !important;
+      transition-duration:.001ms !important; scroll-behavior:auto !important;
+    }
+    [data-reveal] { opacity:1 !important; transform:none !important; }
+  }
+</style>
+</head>
+
+<body class="bg-ink text-frost font-body antialiased">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-sky focus:text-ink focus:px-4 focus:py-2 focus:rounded-md focus:font-semibold">Skip to content</a>
+
+<!-- ============ BACKGROUND LAYER ============ -->
+<div aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden bg-ink">
+  <div class="absolute inset-0 bg-grid"></div>
+  <div class="glow-orb absolute -top-48 left-1/2 -translate-x-1/2 h-[560px] w-[860px] rounded-full bg-sky/15"></div>
+  <div class="glow-orb absolute top-[65vh] -right-40 h-[420px] w-[420px] rounded-full bg-sky-bright/10"></div>
+  <div class="glow-orb absolute top-[130vh] -left-32 h-[380px] w-[380px] rounded-full bg-sky/10"></div>
+</div>
+
+<!-- ============ NAV ============ -->
+<header id="site-nav" class="fixed top-0 inset-x-0 z-50">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div id="nav-inner" class="mt-4 flex items-center justify-between rounded-2xl border border-line px-5 py-3 transition-all duration-500">
+      <a href="#home" class="font-display text-lg font-semibold tracking-tight">Senash<span class="text-sky">.</span></a>
+
+      <nav class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-mute" aria-label="Primary">
+        <a href="#home" data-nav class="nav-link active hover:text-frost transition-colors">Home</a>
+        <a href="#about" data-nav class="nav-link hover:text-frost transition-colors">About</a>
+        <a href="#experience" data-nav class="nav-link hover:text-frost transition-colors">Experience</a>
+        <a href="#designs" data-nav class="nav-link hover:text-frost transition-colors">Designs</a>
+        <a href="#projects" data-nav class="nav-link hover:text-frost transition-colors">Projects</a>
+        <a href="#contact" data-nav class="nav-link hover:text-frost transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:inline-flex items-center rounded-full border border-sky/40 px-4 py-2 font-mono text-xs uppercase tracking-widest text-sky hover:bg-sky hover:text-ink transition-colors">Let's talk</a>
+        <button id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-panel" class="md:hidden relative h-9 w-9 flex flex-col items-center justify-center gap-1.5">
+          <span id="bar1" class="block h-px w-6 bg-frost transition-transform duration-300"></span>
+          <span id="bar2" class="block h-px w-6 bg-frost transition-opacity duration-300"></span>
+          <span id="bar3" class="block h-px w-6 bg-frost transition-transform duration-300"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div id="menu-backdrop" class="fixed inset-0 z-40 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-500 md:hidden"></div>
+<div id="mobile-panel" class="fixed inset-y-0 right-0 z-50 w-full max-w-xs glass border-l border-line md:hidden">
+  <div class="flex flex-col h-full p-8">
+    <div class="flex justify-end">
+      <button id="menu-close" aria-label="Close menu" class="h-9 w-9 text-3xl leading-none text-frost">&times;</button>
+    </div>
+    <nav class="mt-10 flex flex-col gap-6 font-display text-3xl" aria-label="Mobile">
+      <a href="#home" data-nav-mobile class="mobile-link">Home</a>
+      <a href="#about" data-nav-mobile class="mobile-link" style="transition-delay:.05s">About</a>
+      <a href="#experience" data-nav-mobile class="mobile-link" style="transition-delay:.1s">Experience</a>
+      <a href="#designs" data-nav-mobile class="mobile-link" style="transition-delay:.15s">Designs</a>
+      <a href="#projects" data-nav-mobile class="mobile-link" style="transition-delay:.2s">Projects</a>
+      <a href="#contact" data-nav-mobile class="mobile-link" style="transition-delay:.25s">Contact</a>
+    </nav>
+    <!-- TODO: swap in your real email -->
+    <a href="mailto:bmalmika@gmail.com" class="mt-auto inline-flex items-center justify-center rounded-full bg-sky text-ink font-mono text-xs uppercase tracking-widest py-3.5">Say hello</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section id="home" class="relative flex min-h-screen items-center pt-36 pb-20 px-6 lg:px-10 overflow-hidden scroll-mt-24">
+    <div id="hero-glow" aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-0 md:opacity-100 transition-opacity duration-700"></div>
+
+    <div class="relative mx-auto max-w-7xl w-full grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-8">
+        <div data-reveal class="inline-flex items-center gap-2 rounded-full border border-line px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-mute mb-8">
+          <span class="status-dot h-1.5 w-1.5 rounded-full bg-sky-bright"></span>
+          Available for select projects — 2026
+        </div>
+
+        <h1 id="hero-title" data-reveal style="transition-delay:.1s" class="font-display text-[15vw] leading-[0.95] sm:text-6xl lg:text-7xl xl:text-8xl font-semibold tracking-tight min-h-[1.1em]">
+          <span id="hero-typed"></span><span id="hero-cursor" class="hero-cursor" aria-hidden="true">|</span>
+          <span class="sr-only">Hi, Senash is here.</span>
+        </h1>
+
+        <p data-reveal style="transition-delay:.2s" class="mt-8 max-w-xl text-lg text-mute leading-relaxed">
+          I'm Senash — a brand and packaging designer who also builds the interfaces that carry those brands online. Currently designing packaging at <span class="text-frost">Mamba Fun Snacks</span>, and taking on select freelance work from dieline to deploy.
+        </p>
+
+        <div data-reveal style="transition-delay:.3s" class="mt-10 flex flex-wrap items-center gap-4">
+          <a href="#designs" data-magnetic class="btn-primary inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky to-sky-bright px-7 py-3.5 font-mono text-xs uppercase tracking-widest text-ink font-semibold">
+            View my work <span aria-hidden="true">→</span>
+          </a>
+          <a href="#contact" data-magnetic class="inline-flex items-center gap-2 rounded-full border border-line px-7 py-3.5 font-mono text-xs uppercase tracking-widest hover:border-sky/50 transition-colors">
+            Contact me
+          </a>
+        </div>
+      </div>
+
+      <div data-reveal style="transition-delay:.3s" class="lg:col-span-4 relative hidden lg:block">
+        <div class="glass border border-line rounded-3xl p-6 animate-float">
+          <div class="font-mono text-[11px] uppercase tracking-widest text-mute mb-4 flex justify-between">
+            <span>Spec — 001</span><span>Rev. 2026</span>
+          </div>
+          <dl class="space-y-4 font-mono text-sm">
+            <div class="flex justify-between border-b border-line pb-3"><dt class="text-mute">Name</dt><dd>Senash Nethmina</dd></div>
+            <div class="flex justify-between border-b border-line pb-3"><dt class="text-mute">Role</dt><dd class="text-right">Designer / Developer</dd></div>
+            <div class="flex justify-between border-b border-line pb-3"><dt class="text-mute">Focus</dt><dd class="text-right">Brand · Packaging · Web</dd></div>
+            <div class="flex justify-between"><dt class="text-mute">Status</dt><dd class="text-sky-bright">Active</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div aria-hidden="true" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-mute font-mono text-[10px] uppercase tracking-widest">
+      <span>Scroll</span>
+      <span class="h-8 w-px bg-gradient-to-b from-sky to-transparent"></span>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="relative px-6 lg:px-10 py-28 lg:py-36 scroll-mt-24">
+    <div class="mx-auto max-w-7xl grid lg:grid-cols-12 gap-16 items-center">
+
+      <!-- Photo -->
+      <div class="lg:col-span-4" data-reveal>
+        <div class="relative mx-auto max-w-[220px] sm:max-w-[260px] lg:max-w-[240px]">
+          <div aria-hidden="true" class="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-sky/25 via-sky-bright/10 to-transparent blur-2xl"></div>
+          <div class="relative rounded-3xl border border-line overflow-hidden shadow-glow">
+            <img src="Untitled-1.png" alt="Portrait of Senash" class="w-full h-full object-cover aspect-[4/5]" loading="lazy" />
+          </div>
+          <div aria-hidden="true" class="absolute -bottom-4 -right-4 hidden sm:flex items-center gap-2 rounded-full border border-line glass px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-sky">
+            <span class="status-dot h-2 w-2 rounded-full bg-sky"></span> Available
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div class="lg:col-span-8" data-reveal>
+        <span class="font-mono text-xs uppercase tracking-widest text-sky">01 / About</span>
+        <h2 class="font-display text-4xl sm:text-5xl font-semibold mt-4 leading-tight"> / about me</h2>
+        <p class="mt-6 text-mute leading-relaxed">I started in packaging and print — where a design has to survive being printed, cut, folded, and held. That same discipline now shapes how I build for screens: systems that hold up, not mockups that just look good in a deck.</p>
+        <p class="mt-4 text-mute leading-relaxed">Alongside client and studio work, I study Business Studies, Accounting, and Computer Science at the A/L level — a fairly literal way to end up doing brand strategy and code in the same afternoon.</p>
+        <div class="mt-8 flex flex-wrap gap-2">
+          <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 text-mute">Brand Identity</span>
+          <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 text-mute">Packaging Systems</span>
+          <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 text-mute">UI/UX</span>
+          <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 text-mute">Front-End Dev</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="relative px-6 lg:px-10 py-28 lg:py-36 bg-surface/40 border-y border-line scroll-mt-24">
+    <div class="mx-auto max-w-7xl">
+      <div class="mb-16" data-reveal>
+        <span class="font-mono text-xs uppercase tracking-widest text-sky">02 / Experience</span>
+        <h2 class="font-display text-4xl sm:text-5xl font-semibold mt-4">/ Where I've worked.</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-10" data-reveal>
+
+        <!-- Company selector -->
+        <div class="lg:col-span-4">
+          <div role="tablist" aria-label="Select employer" class="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible -mx-1 px-1 pb-2 lg:pb-0 lg:mx-0 lg:px-0">
+
+            <button type="button" data-exp-tab="splash" role="tab" aria-selected="true" aria-controls="exp-panel-splash" id="exp-tab-splash"
+              class="exp-tab active shrink-0 lg:shrink lg:w-full flex items-center gap-3 rounded-xl border border-line px-4 py-3.5 text-left transition-colors">
+              <span class="h-10 w-10 shrink-0 rounded-xl bg-gradient-to-br from-sky/25 to-sky-bright/10 border border-line flex items-center justify-center font-display text-xs font-semibold text-sky">SG</span>
+              <span class="whitespace-nowrap lg:whitespace-normal">
+                <span class="exp-tab-name block font-display text-sm font-semibold transition-colors">Splash Global</span>
+                <span class="block font-mono text-[10px] uppercase tracking-widest text-mute mt-0.5">Nov 2024 — Present</span>
+              </span>
+            </button>
+
+            <button type="button" data-exp-tab="mamba" role="tab" aria-selected="false" aria-controls="exp-panel-mamba" id="exp-tab-mamba"
+              class="exp-tab shrink-0 lg:shrink lg:w-full flex items-center gap-3 rounded-xl border border-line px-4 py-3.5 text-left transition-colors">
+              <span class="h-10 w-10 shrink-0 rounded-xl bg-gradient-to-br from-sky/25 to-sky-bright/10 border border-line flex items-center justify-center font-display text-xs font-semibold text-sky">MF</span>
+              <span class="whitespace-nowrap lg:whitespace-normal">
+                <span class="exp-tab-name block font-display text-sm font-semibold transition-colors">Mamba Fun Snacks</span>
+                <span class="block font-mono text-[10px] uppercase tracking-widest text-mute mt-0.5">Aug 2024 — Present</span>
+              </span>
+            </button>
+
+            <button type="button" data-exp-tab="fiverr" role="tab" aria-selected="false" aria-controls="exp-panel-fiverr" id="exp-tab-fiverr"
+              class="exp-tab shrink-0 lg:shrink lg:w-full flex items-center gap-3 rounded-xl border border-line px-4 py-3.5 text-left transition-colors">
+              <span class="h-10 w-10 shrink-0 rounded-xl bg-gradient-to-br from-sky/25 to-sky-bright/10 border border-line flex items-center justify-center font-display text-xs font-semibold text-sky">F</span>
+              <span class="whitespace-nowrap lg:whitespace-normal">
+                <span class="exp-tab-name block font-display text-sm font-semibold transition-colors">Fiverr</span>
+                <span class="block font-mono text-[10px] uppercase tracking-widest text-mute mt-0.5">Nov 2023 — Jan 2026</span>
+              </span>
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Detail panel -->
+        <div class="lg:col-span-8">
+          <div class="relative rounded-3xl border border-line bg-surface p-8 sm:p-10 min-h-[340px]">
+
+            <div data-exp-panel="splash" id="exp-panel-splash" role="tabpanel" aria-labelledby="exp-tab-splash" class="exp-panel in">
+              <div class="font-mono flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-mute mb-4"><span>Part-time</span><span aria-hidden="true">·</span><span>Graphic Design</span></div>
+              <h3 class="font-display text-2xl sm:text-3xl font-semibold leading-snug">Graphic Designer @
+                <a href="https://lk.linkedin.com/company/splash-globalc" target="_blank" rel="noopener noreferrer" class="text-sky hover:text-sky-bright transition-colors underline decoration-sky/30 underline-offset-4">Splash Global <span aria-hidden="true">↗</span></a>
+              </h3>
+              <p class="mt-4 font-mono text-xs uppercase tracking-widest text-mute">Nov 2024 — Present</p>
+              <p class="mt-1 font-mono text-xs uppercase tracking-widest text-mute">Colombo, Western Province, Sri Lanka · Remote</p>
+              <ul class="mt-8 space-y-3 text-mute text-sm leading-relaxed border-t border-line pt-6">
+                <li class="flex gap-3"><span class="text-sky mt-0.5" aria-hidden="true">▸</span><span>Graphic Design</span></li>
+              </ul>
+            </div>
+
+            <div data-exp-panel="mamba" id="exp-panel-mamba" role="tabpanel" aria-labelledby="exp-tab-mamba" class="exp-panel hidden">
+              <div class="font-mono flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-mute mb-4"><span>Part-time</span><span aria-hidden="true">·</span><span>Retail Packaging, Graphic Design</span></div>
+              <h3 class="font-display text-2xl sm:text-3xl font-semibold leading-snug">Packaging Designer @
+                <a href="https://www.themambabrand.com/" target="_blank" rel="noopener noreferrer" class="text-sky hover:text-sky-bright transition-colors underline decoration-sky/30 underline-offset-4">Mamba Fun Snacks <span aria-hidden="true">↗</span></a>
+              </h3>
+              <p class="mt-4 font-mono text-xs uppercase tracking-widest text-mute">Aug 2024 — Present</p>
+              <p class="mt-1 font-mono text-xs uppercase tracking-widest text-mute">Los Angeles, California, United States · Remote</p>
+              <ul class="mt-8 space-y-3 text-mute text-sm leading-relaxed border-t border-line pt-6">
+                <li class="flex gap-3"><span class="text-sky mt-0.5" aria-hidden="true">▸</span><span>Retail Packaging</span></li>
+                <li class="flex gap-3"><span class="text-sky mt-0.5" aria-hidden="true">▸</span><span>Graphic Design</span></li>
+              </ul>
+            </div>
+
+            <div data-exp-panel="fiverr" id="exp-panel-fiverr" role="tabpanel" aria-labelledby="exp-tab-fiverr" class="exp-panel hidden">
+              <div class="font-mono flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-mute mb-4"><span>Part-time</span><span aria-hidden="true">·</span><span>Digital Illustration</span></div>
+              <h3 class="font-display text-2xl sm:text-3xl font-semibold leading-snug">Graphic Designer @
+                <a href="https://www.fiverr.com/" target="_blank" rel="noopener noreferrer" class="text-sky hover:text-sky-bright transition-colors underline decoration-sky/30 underline-offset-4">Fiverr <span aria-hidden="true">↗</span></a>
+              </h3>
+              <p class="mt-4 font-mono text-xs uppercase tracking-widest text-mute">Nov 2023 — Jan 2026</p>
+              <ul class="mt-8 space-y-3 text-mute text-sm leading-relaxed border-t border-line pt-6">
+                <li class="flex gap-3"><span class="text-sky mt-0.5" aria-hidden="true">▸</span><span>Digital Illustration</span></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DESIGNS ============ -->
+  <!-- Cover images: each card has an <img> pointing at a suggested file path below (e.g. designs/packaging/nova.jpg).
+       Drop a real image at that path and it becomes the card's cover automatically. Until then, onerror hides the
+       broken image and the gradient + icon placeholder underneath shows instead. -->
+  <section id="designs" class="relative px-6 lg:px-10 py-28 lg:py-36 scroll-mt-24">
+    <div class="mx-auto max-w-7xl">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10" data-reveal>
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-sky">03 / Designs</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-semibold mt-4">Selected design work.</h2>
+        </div>
+        <p class="max-w-sm text-mute text-sm leading-relaxed">Packaging, identity, and the visual work that carries a brand across every surface.</p>
+      </div>
+
+      <div class="flex flex-wrap gap-2 mb-10" data-reveal role="tablist" aria-label="Filter by design category">
+        <button type="button" data-design-filter="all" aria-pressed="true" class="design-filter active font-mono text-xs uppercase tracking-widest rounded-full border border-line px-5 py-2.5 transition-colors">All</button>
+        <button type="button" data-design-filter="packaging" aria-pressed="false" class="design-filter font-mono text-xs uppercase tracking-widest rounded-full border border-line px-5 py-2.5 transition-colors">Packaging Design</button>
+        <button type="button" data-design-filter="logo" aria-pressed="false" class="design-filter font-mono text-xs uppercase tracking-widest rounded-full border border-line px-5 py-2.5 transition-colors">Logo Design</button>
+        <button type="button" data-design-filter="social" aria-pressed="false" class="design-filter font-mono text-xs uppercase tracking-widest rounded-full border border-line px-5 py-2.5 transition-colors">Social Media Posts</button>
+        <button type="button" data-design-filter="illustration" aria-pressed="false" class="design-filter font-mono text-xs uppercase tracking-widest rounded-full border border-line px-5 py-2.5 transition-colors">Illustrations</button>
+      </div>
+
+      <div id="design-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+
+        <!-- Packaging -->
+        <a href="designs-packaging.html" data-design-item data-design-category="packaging" class="card-hover design-card group relative block overflow-hidden rounded-xl border border-line bg-surface" data-reveal>
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <div class="design-art art absolute inset-0 bg-gradient-to-br from-sky/20 via-surface to-surface2"></div>
+            <svg class="absolute inset-0 m-auto h-10 w-10 text-sky/25" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M34 38 L50 30 L66 38 L50 46 Z"/><path d="M34 38 V62 L50 70 V46"/><path d="M66 38 V62 L50 70"/></svg>
+            <img src="467weuu7.png" alt="Nova — Snack Packaging cover" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <div class="scanline"></div>
+          </div>
+          <div class="p-3">
+            <p class="font-mono text-[9px] uppercase tracking-widest text-sky">Packaging Design</p>
+            <h3 class="font-display text-sm font-semibold mt-0.5 truncate">Nova — Snack Packaging</h3>
+          </div>
+        </a>
+
+        <a href="designs-packaging.html" data-design-item data-design-category="packaging" class="card-hover design-card group relative block overflow-hidden rounded-xl border border-line bg-surface" data-reveal style="transition-delay:.05s">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <div class="design-art art absolute inset-0 bg-gradient-to-br from-sky-bright/20 via-surface to-surface2"></div>
+            <svg class="absolute inset-0 m-auto h-10 w-10 text-sky/25" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="35" y="35" width="30" height="38" rx="4"/><path d="M42 35 V27 H58 V35"/></svg>
+            <img src="designs/packaging/citrus-fizz.jpg" alt="Citrus Fizz — Beverage Pack cover" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <div class="scanline"></div>
+          </div>
+          <div class="p-3">
+            <p class="font-mono text-[9px] uppercase tracking-widest text-sky">Packaging Design</p>
+            <h3 class="font-display text-sm font-semibold mt-0.5 truncate">Citrus Fizz — Beverage Pack</h3>
+          </div>
+        </a>
+
+        <!-- Logo -->
+        <a href="designs-logo.html" data-design-item data-design-category="logo" class="card-hover design-card group relative block overflow-hidden rounded-xl border border-line bg-surface" data-reveal>
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <div class="design-art art absolute inset-0 bg-gradient-to-br from-sky/20 via-surface to-surface2"></div>
+            <svg class="absolute inset-0 m-auto h-10 w-10 text-sky/25" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="30" y="30" width="40" height="40" rx="8"/><path d="M30 50 H70 M50 30 V70"/></svg>
+            <img src="designs/logo/kestrel.jpg" alt="Kestrel — Wordmark & Mark cover" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <div class="scanline"></div>
+          </div>
+          <div class="p-3">
+            <p class="font-mono text-[9px] uppercase tracking-widest text-sky">Logo Design</p>
+            <h3 class="font-display text-sm font-semibold mt-0.5 truncate">Kestrel — Wordmark &amp; Mark</h3>
+          </div>
+        </a>
+
+        <a href="designs-logo.html" data-design-item data-design-category="logo" class="card-hover design-card group relative block overflow-hidden rounded-xl border border-line bg-surface" data-reveal style="transition-delay:.05s">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <div class="design-art art absolute inset-0 bg-gradient-to-br from-sky-bright/20 via-surface to-surface2"></div>
+            <svg class="absolute inset-0 m-auto h-10 w-10 text-sky/25" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="50" cy="50" r="20"/><circle cx="50" cy="50" r="9"/></svg>
+            <img src="designs/logo/ember.jpg" alt="Ember — Logo System cover" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <div class="scanline"></div>
+          </div>
+          <div class="p-3">
+            <p class="font-mono text-[9px] uppercase tracking-widest text-sky">Logo Design</p>
+            <h3 class="font-display text-sm font-semibold mt-0.5 truncate">Ember — Logo System</h3>
+          </div>
+        </a>
+
+        <!-- Social -->
+        <a href="designs-social.html" data-design-item data-design-category="social" class="card-hover design-card group relative block overflow-hidden rounded-xl border border-line bg-surface" data-reveal>
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <div class="design-art art absolute inset-0 bg-gradient-to-br from-sky/20 via-surface to-surface2"></div>
+            <svg class="absolute inset-0 m-auto h-10 w-10 text-sky/25" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="25" y="25" width="50" height="50" rx="10"/><circle cx="40" cy="42" r="5"/><path d="M30 65 L45 50 L58 60 L70 45 V65 Z"/></svg>
+            <img src="designs/social/pulse.jpg" alt="Pulse — Campaign Templates cover" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <div class="scanline"></div>
+          </div>
+          <div class="p-3">
+            <p class="font-mono text-[9px] uppercase tracking-widest text-sky">Social Media Posts</p>
+            <h3 class="font-display text-sm font-semibold mt-0.5 truncate">Pulse — Campaign Templates</h3>
+          </div>
+        </a>
+
+        <a href="designs-social.html" data-design-item data-design-category="social" class="card-hover design-card group relative block overflow-hidden rounded-xl border border-line bg-surface" data-reveal style="transition-delay:.05s">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <div class="design-art art absolute inset-0 bg-gradient-to-br from-sky-bright/20 via-surface to-surface2"></div>
+            <svg class="absolute inset-0 m-auto h-10 w-10 text-sky/25" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="25" y="25" width="50" height="50" rx="25"/><path d="M40 50 H60 M50 40 V60"/></svg>
+            <img src="designs/social/launch-day.jpg" alt="Launch Day — Story Set cover" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <div class="scanline"></div>
+          </div>
+          <div class="p-3">
+            <p class="font-mono text-[9px] uppercase tracking-widest text-sky">Social Media Posts</p>
+            <h3 class="font-display text-sm font-semibold mt-0.5 truncate">Launch Day — Story Set</h3>
+          </div>
+        </a>
+
+        <!-- Illustrations -->
+        <a href="designs-illustrations.html" data-design-item data-design-category="illustration" class="card-hover design-card group relative block overflow-hidden rounded-xl border border-line bg-surface" data-reveal>
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <div class="design-art art absolute inset-0 bg-gradient-to-br from-sky/20 via-surface to-surface2"></div>
+            <svg class="absolute inset-0 m-auto h-10 w-10 text-sky/25" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="42" cy="45" r="18"/><circle cx="62" cy="60" r="12"/></svg>
+            <img src="designs/illustration/verdant.jpg" alt="Verdant — Print Series cover" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <div class="scanline"></div>
+          </div>
+          <div class="p-3">
+            <p class="font-mono text-[9px] uppercase tracking-widest text-sky">Illustrations</p>
+            <h3 class="font-display text-sm font-semibold mt-0.5 truncate">Verdant — Print Series</h3>
+          </div>
+        </a>
+
+        <a href="designs-illustrations.html" data-design-item data-design-category="illustration" class="card-hover design-card group relative block overflow-hidden rounded-xl border border-line bg-surface" data-reveal style="transition-delay:.05s">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <div class="design-art art absolute inset-0 bg-gradient-to-br from-sky-bright/20 via-surface to-surface2"></div>
+            <svg class="absolute inset-0 m-auto h-10 w-10 text-sky/25" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M30 70 Q50 20 70 70 Z"/></svg>
+            <img src="designs/illustration/nightshift.jpg" alt="Nightshift — Icon Set cover" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <div class="scanline"></div>
+          </div>
+          <div class="p-3">
+            <p class="font-mono text-[9px] uppercase tracking-widest text-sky">Illustrations</p>
+            <h3 class="font-display text-sm font-semibold mt-0.5 truncate">Nightshift — Icon Set</h3>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <!-- Placeholder builds below — swap titles, tech tags, and the '#' repo/live links for your real ones. -->
+  <section id="projects" class="relative px-6 lg:px-10 py-28 lg:py-36 bg-surface/40 border-y border-line scroll-mt-24">
+    <div class="mx-auto max-w-7xl">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-16" data-reveal>
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-sky">04 / Projects</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-semibold mt-4">Things I've built.</h2>
+        </div>
+        <p class="max-w-sm text-mute text-sm leading-relaxed">Web and product builds — from Figma file to shipped front end.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Featured -->
+        <div class="relative rounded-3xl md:col-span-2 min-h-[380px]" data-reveal>
+          <button type="button" data-project
+            data-tag="01" data-category="Web Design" data-year="2026"
+            data-title="Senash — Portfolio"
+            data-role="Web Design &amp; Front-End Build" data-tools="HTML, Tailwind CSS, JavaScript"
+            data-desc="My personal portfolio site, designed and hand-coded from scratch to showcase my brand, packaging, and web design work."
+            class="card-hover group absolute inset-0 z-0 w-full h-full text-left overflow-hidden rounded-3xl border border-line bg-surface p-8 flex flex-col justify-end focus-visible:outline-2">
+            <div class="art absolute inset-0 bg-gradient-to-br from-sky/15 via-surface to-surface2"></div>
+            <img src="1293830_502.jpg" alt="Senash — Portfolio cover" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <div class="scanline"></div>
+            <h3 class="relative z-10 font-display text-2xl sm:text-3xl font-semibold mt-8">Senash — Portfolio</h3>
+            <p class="relative z-10 mt-2 text-mute max-w-md text-sm">My personal portfolio site, designed and hand-coded from scratch to showcase my work.</p>
+            <p class="relative z-10 mt-4 font-mono text-[11px] uppercase tracking-widest text-mute">HTML · Tailwind CSS · JavaScript</p>
+          </button>
+          <div class="pointer-events-none relative z-10 flex items-center justify-between p-8">
+            <svg class="h-7 w-7 text-sky/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
+            <span class="pointer-events-auto flex items-center gap-4 text-mute">
+              <a href="#" onclick="return false;" aria-label="Repository link — add your URL" class="hover:text-sky transition-colors"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 9 4 12l4 3M16 9l4 3-4 3M13 6l-2 12"/></svg></a>
+              <a href="#" onclick="return false;" aria-label="Live site link — add your URL" class="hover:text-sky transition-colors"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 5h5v5M19 5 10 14M8 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-2"/></svg></a>
+            </span>
+          </div>
+        </div>
+
+        <!-- Grid card -->
+        <div class="relative rounded-3xl min-h-[300px]" data-reveal>
+          <button type="button" data-project
+            data-tag="02" data-category="Web Design" data-year="2026"
+            data-title="Custom Build"
+            data-role="Web Design &amp; Front-End Build" data-tools="HTML, Tailwind CSS, JavaScript"
+            data-desc="A custom-built website designed and coded to a client's exact needs, from layout to interactions."
+            class="card-hover group absolute inset-0 z-0 w-full h-full text-left overflow-hidden rounded-3xl border border-line bg-surface p-7 flex flex-col justify-end focus-visible:outline-2">
+            <div class="art absolute inset-0 bg-gradient-to-br from-sky-bright/15 via-surface to-surface2"></div>
+            <img src="projects/custom-build.jpg" alt="Custom Build cover" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <div class="scanline"></div>
+            <h3 class="relative z-10 font-display text-xl font-semibold mt-6">Custom Build</h3>
+            <p class="relative z-10 mt-4 font-mono text-[11px] uppercase tracking-widest text-mute">HTML · Tailwind CSS · JavaScript</p>
+          </button>
+          <div class="pointer-events-none relative z-10 flex items-center justify-between p-7">
+            <svg class="h-6 w-6 text-sky/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
+            <span class="pointer-events-auto flex items-center gap-3 text-mute">
+              <a href="#" onclick="return false;" aria-label="Repository link — add your URL" class="hover:text-sky transition-colors"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 9 4 12l4 3M16 9l4 3-4 3M13 6l-2 12"/></svg></a>
+              <a href="#" onclick="return false;" aria-label="Live site link — add your URL" class="hover:text-sky transition-colors"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 5h5v5M19 5 10 14M8 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-2"/></svg></a>
+            </span>
+          </div>
+        </div>
+
+        <!-- Grid card -->
+        <div class="relative rounded-3xl min-h-[300px]" data-reveal style="transition-delay:.05s">
+          <button type="button" data-project
+            data-tag="03" data-category="Web Design" data-year="2026"
+            data-title="Field Notes — Journal App"
+            data-role="Web Design &amp; Front-End Build" data-tools="HTML, Tailwind CSS, JavaScript"
+            data-desc="A lightweight, browser-based journaling tool with local-first storage, built as a personal front-end experiment."
+            class="card-hover group absolute inset-0 z-0 w-full h-full text-left overflow-hidden rounded-3xl border border-line bg-surface p-7 flex flex-col justify-end focus-visible:outline-2">
+            <div class="art absolute inset-0 bg-gradient-to-br from-sky/15 via-surface to-surface2"></div>
+            <img src="projects/field-notes.jpg" alt="Field Notes — Journal App cover" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <div class="scanline"></div>
+            <h3 class="relative z-10 font-display text-xl font-semibold mt-6">Field Notes — Journal App</h3>
+            <p class="relative z-10 mt-4 font-mono text-[11px] uppercase tracking-widest text-mute">HTML · Tailwind CSS · JavaScript</p>
+          </button>
+          <div class="pointer-events-none relative z-10 flex items-center justify-between p-7">
+            <svg class="h-6 w-6 text-sky/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
+            <span class="pointer-events-auto flex items-center gap-3 text-mute">
+              <a href="#" onclick="return false;" aria-label="Repository link — add your URL" class="hover:text-sky transition-colors"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 9 4 12l4 3M16 9l4 3-4 3M13 6l-2 12"/></svg></a>
+              <a href="#" onclick="return false;" aria-label="Live site link — add your URL" class="hover:text-sky transition-colors"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 5h5v5M19 5 10 14M8 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-2"/></svg></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS / TOOLS ============ -->
+  <section id="skills" class="relative px-6 lg:px-10 py-24 border-y border-line bg-surface/40 scroll-mt-24">
+    <div class="mx-auto max-w-7xl">
+      <div data-reveal class="mb-12 max-w-xl">
+        <span class="font-mono text-xs uppercase tracking-widest text-sky">05 / Tools</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-semibold mt-4">What I build with.</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-10">
+        <div data-reveal>
+          <p class="font-mono text-xs uppercase tracking-widest text-mute mb-4">Design</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">Adobe Illustrator</span>
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">Adobe Photoshop</span>
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">Adobe InDesign</span>
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">Figma</span>
+          </div>
+        </div>
+        <div data-reveal style="transition-delay:.1s">
+          <p class="font-mono text-xs uppercase tracking-widest text-mute mb-4">Development</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">HTML</span>
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">CSS</span>
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">JavaScript</span>
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">Tailwind CSS</span>
+            <span class="font-mono text-xs uppercase tracking-widest border border-line rounded-full px-4 py-2 hover:text-frost hover:border-sky/40 transition-colors">Git</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <!-- Placeholder numbers — update data-count-to with real figures. -->
+  <section id="stats" class="relative px-6 lg:px-10 py-24 scroll-mt-24">
+    <div class="mx-auto max-w-7xl grid grid-cols-2 md:grid-cols-4 gap-10">
+      <div data-reveal class="text-center md:text-left">
+        <span class="counter font-display text-5xl sm:text-6xl font-semibold grad-text" data-count-to="40">0</span><span class="grad-text font-display text-5xl sm:text-6xl font-semibold">+</span>
+        <p class="mt-2 font-mono text-xs uppercase tracking-widest text-mute">Projects completed</p>
+      </div>
+      <div data-reveal style="transition-delay:.05s" class="text-center md:text-left">
+        <span class="counter font-display text-5xl sm:text-6xl font-semibold grad-text" data-count-to="3">0</span><span class="grad-text font-display text-5xl sm:text-6xl font-semibold">+</span>
+        <p class="mt-2 font-mono text-xs uppercase tracking-widest text-mute">Years designing</p>
+      </div>
+      <div data-reveal style="transition-delay:.1s" class="text-center md:text-left">
+        <span class="counter font-display text-5xl sm:text-6xl font-semibold grad-text" data-count-to="12">0</span><span class="grad-text font-display text-5xl sm:text-6xl font-semibold">+</span>
+        <p class="mt-2 font-mono text-xs uppercase tracking-widest text-mute">Happy clients</p>
+      </div>
+      <div data-reveal style="transition-delay:.15s" class="text-center md:text-left">
+        <span class="counter font-display text-5xl sm:text-6xl font-semibold grad-text" data-count-to="150">0</span><span class="grad-text font-display text-5xl sm:text-6xl font-semibold">+</span>
+        <p class="mt-2 font-mono text-xs uppercase tracking-widest text-mute">Assets shipped</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="relative px-6 lg:px-10 py-28 lg:py-36 border-t border-line scroll-mt-24">
+    <div class="mx-auto max-w-4xl text-center" data-reveal>
+      <span class="font-mono text-xs uppercase tracking-widest text-sky">06 / Contact</span>
+      <h2 class="font-display text-4xl sm:text-6xl font-semibold mt-4">Let's build something<br />that ships.</h2>
+      <p class="mt-6 text-mute max-w-xl mx-auto leading-relaxed">Have a brand, a product, or a packaging problem that needs solving end to end? I'd like to hear about it.</p>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <!-- TODO: swap in your real email -->
+        <a href="mailto:bmalmika@gmail.com" data-magnetic class="btn-primary inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky to-sky-bright px-8 py-4 font-mono text-xs uppercase tracking-widest text-ink font-semibold">
+          Say hello <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- TODO: swap in your real profile links -->
+      <div class="mt-8 flex justify-center flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-widest text-mute">
+        <a href="#" class="hover:text-sky transition-colors">LinkedIn</a>
+        <span aria-hidden="true">·</span>
+        <a href="#" class="hover:text-sky transition-colors">Behance</a>
+        <span aria-hidden="true">·</span>
+        <a href="#" class="hover:text-sky transition-colors">Instagram</a>
+        <span aria-hidden="true">·</span>
+        <a href="#" class="hover:text-sky transition-colors">GitHub</a>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="relative border-t border-line px-6 lg:px-10 py-12">
+  <div class="mx-auto max-w-7xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
+    <div>
+      <a href="#home" class="font-display text-lg font-semibold">Senash<span class="text-sky">.</span></a>
+      <p class="mt-2 text-sm text-mute">Design that ships. Based in Sri Lanka.</p>
+    </div>
+    <nav class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-widest text-mute" aria-label="Footer">
+      <a href="#about" class="hover:text-sky transition-colors">About</a>
+      <a href="#experience" class="hover:text-sky transition-colors">Experience</a>
+      <a href="#designs" class="hover:text-sky transition-colors">Designs</a>
+      <a href="#projects" class="hover:text-sky transition-colors">Projects</a>
+      <a href="#contact" class="hover:text-sky transition-colors">Contact</a>
+    </nav>
+    <div class="font-mono text-xs text-mute">&copy; <span id="year"></span> Senash. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- ============ PROJECT MODAL ============ -->
+<div id="project-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-8" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div id="modal-backdrop" class="absolute inset-0 bg-ink/90 backdrop-blur-sm"></div>
+  <div id="modal-panel" class="relative z-10 w-full max-w-2xl glass border border-line rounded-3xl p-8 sm:p-10 opacity-0 scale-95 transition-all duration-400">
+    <button id="modal-close" aria-label="Close project details" class="absolute top-6 right-6 h-9 w-9 rounded-full border border-line flex items-center justify-center hover:border-sky/50 transition-colors">&times;</button>
+    <div class="font-mono flex flex-wrap gap-4 text-[11px] text-mute mb-6">
+      <span id="modal-tag">#01</span><span id="modal-category">Category</span><span id="modal-year">Year</span>
+    </div>
+    <h3 id="modal-title" class="font-display text-3xl font-semibold mb-4">Title</h3>
+    <p id="modal-desc" class="text-mute leading-relaxed mb-8">Description</p>
+    <div class="grid sm:grid-cols-2 gap-6 border-t border-line pt-6 font-mono text-xs">
+      <div><dt class="text-mute uppercase tracking-widest mb-1">Role</dt><dd id="modal-role"></dd></div>
+      <div><dt class="text-mute uppercase tracking-widest mb-1">Tools</dt><dd id="modal-tools"></dd></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---- Sticky nav: glass state on scroll ----
+  var navInner = document.getElementById('nav-inner');
+  function onScrollNav() {
+    if (window.scrollY > 24) {
+      navInner.classList.add('glass', 'shadow-glow');
+    } else {
+      navInner.classList.remove('glass', 'shadow-glow');
+    }
+  }
+  onScrollNav();
+  window.addEventListener('scroll', onScrollNav, { passive: true });
+
+  // ---- Active nav link tracking ----
+  var sections = ['home', 'about', 'experience', 'designs', 'projects', 'contact'].map(function (id) {
+    return document.getElementById(id);
+  }).filter(Boolean);
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('[data-nav]'));
+  if ('IntersectionObserver' in window && sections.length) {
+    var navObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          navLinks.forEach(function (link) {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function (s) { navObserver.observe(s); });
+  }
+
+  // ---- Mobile menu ----
+  var menuBtn = document.getElementById('menu-btn');
+  var menuClose = document.getElementById('menu-close');
+  var panel = document.getElementById('mobile-panel');
+  var backdrop = document.getElementById('menu-backdrop');
+  var bar1 = document.getElementById('bar1'), bar2 = document.getElementById('bar2'), bar3 = document.getElementById('bar3');
+
+  function openMenu() {
+    panel.classList.add('open');
+    backdrop.classList.remove('opacity-0', 'pointer-events-none');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    document.documentElement.style.overflow = 'hidden';
+    bar1.style.transform = 'translateY(6px) rotate(45deg)';
+    bar3.style.transform = 'translateY(-6px) rotate(-45deg)';
+    bar2.style.opacity = '0';
+    menuClose.focus();
+  }
+  function closeMenu() {
+    panel.classList.remove('open');
+    backdrop.classList.add('opacity-0', 'pointer-events-none');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.documentElement.style.overflow = '';
+    bar1.style.transform = ''; bar3.style.transform = ''; bar2.style.opacity = '';
+    menuBtn.focus();
+  }
+  menuBtn.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  document.querySelectorAll('[data-nav-mobile]').forEach(function (link) {
+    link.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && panel.classList.contains('open')) closeMenu();
+  });
+
+  // ---- Hero typing effect ----
+  var typedEl = document.getElementById('hero-typed');
+  if (typedEl) {
+    var heroText = 'Hi, Senash is here.';
+    var nameStart = heroText.indexOf('Senash');
+    var nameEnd = nameStart + 'Senash'.length;
+    if (reduceMotion) {
+      typedEl.innerHTML = 'Hi, <span class="grad-text">Senash</span> is here.';
+    } else {
+      var i = 0;
+      (function typeChar() {
+        if (i <= heroText.length) {
+          var chunk = heroText.slice(0, i);
+          if (i > nameStart) {
+            var before = chunk.slice(0, nameStart);
+            var namePart = chunk.slice(nameStart, Math.min(i, nameEnd));
+            var after = i > nameEnd ? chunk.slice(nameEnd) : '';
+            typedEl.innerHTML = before + '<span class="grad-text">' + namePart + '</span>' + after;
+          } else {
+            typedEl.textContent = chunk;
+          }
+          i++;
+          setTimeout(typeChar, 55);
+        }
+      })();
+    }
+  }
+
+  // ---- Scroll reveal ----
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+
+  // ---- Hero cursor glow ----
+  var hero = document.getElementById('home');
+  var heroGlow = document.getElementById('hero-glow');
+  if (hero && heroGlow && !reduceMotion) {
+    hero.addEventListener('mousemove', function (e) {
+      var rect = hero.getBoundingClientRect();
+      var x = ((e.clientX - rect.left) / rect.width) * 100;
+      var y = ((e.clientY - rect.top) / rect.height) * 100;
+      heroGlow.style.background = 'radial-gradient(600px circle at ' + x + '% ' + y + '%, rgba(125,211,252,0.12), transparent 60%)';
+    });
+  }
+
+  // ---- Magnetic buttons ----
+  if (!reduceMotion) {
+    document.querySelectorAll('[data-magnetic]').forEach(function (btn) {
+      btn.addEventListener('mousemove', function (e) {
+        var rect = btn.getBoundingClientRect();
+        var x = e.clientX - rect.left - rect.width / 2;
+        var y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = 'translate(' + (x * 0.2) + 'px,' + (y * 0.3) + 'px)';
+      });
+      btn.addEventListener('mouseleave', function () {
+        btn.style.transform = '';
+      });
+    });
+  }
+
+  // ---- Stat counters ----
+  var statCounters = Array.prototype.slice.call(document.querySelectorAll('[data-count-to]'));
+  function animateCounter(el) {
+    var target = parseInt(el.getAttribute('data-count-to'), 10) || 0;
+    if (reduceMotion) { el.textContent = target; return; }
+    var start = null, duration = 1600;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window && statCounters.length) {
+    var statObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          statObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    statCounters.forEach(function (el) { statObserver.observe(el); });
+  }
+
+  // ---- Experience tabs ----
+  var expTabs = Array.prototype.slice.call(document.querySelectorAll('[data-exp-tab]'));
+  var expPanels = Array.prototype.slice.call(document.querySelectorAll('[data-exp-panel]'));
+  function selectExperience(key) {
+    expTabs.forEach(function (tab) {
+      var on = tab.getAttribute('data-exp-tab') === key;
+      tab.classList.toggle('active', on);
+      tab.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    expPanels.forEach(function (panel) {
+      if (panel.getAttribute('data-exp-panel') === key) {
+        panel.classList.remove('hidden');
+        panel.classList.remove('in');
+        void panel.offsetWidth;
+        requestAnimationFrame(function () { panel.classList.add('in'); });
+      } else {
+        panel.classList.remove('in');
+        panel.classList.add('hidden');
+      }
+    });
+  }
+  expTabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      selectExperience(tab.getAttribute('data-exp-tab'));
+    });
+  });
+
+  // ---- Designs filter ----
+  var designFilters = Array.prototype.slice.call(document.querySelectorAll('[data-design-filter]'));
+  var designItems = Array.prototype.slice.call(document.querySelectorAll('[data-design-item]'));
+  designFilters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var cat = btn.getAttribute('data-design-filter');
+      designFilters.forEach(function (b) {
+        var on = b === btn;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      designItems.forEach(function (item) {
+        var show = cat === 'all' || item.getAttribute('data-design-category') === cat;
+        item.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  // ---- Project modal ----
+  var modal = document.getElementById('project-modal');
+  var modalPanel = document.getElementById('modal-panel');
+  var modalClose = document.getElementById('modal-close');
+  var modalBackdrop = document.getElementById('modal-backdrop');
+  var lastTrigger = null;
+
+  function openModal(card) {
+    lastTrigger = card;
+    document.getElementById('modal-tag').textContent = '#' + (card.getAttribute('data-tag') || '');
+    document.getElementById('modal-category').textContent = card.getAttribute('data-category') || '';
+    document.getElementById('modal-year').textContent = card.getAttribute('data-year') || '';
+    document.getElementById('modal-title').textContent = card.getAttribute('data-title') || '';
+    document.getElementById('modal-desc').textContent = card.getAttribute('data-desc') || '';
+    document.getElementById('modal-role').textContent = card.getAttribute('data-role') || '';
+    document.getElementById('modal-tools').textContent = card.getAttribute('data-tools') || '';
+
+    modal.dataset.open = 'true';
+    document.documentElement.style.overflow = 'hidden';
+    requestAnimationFrame(function () { modalPanel.classList.add('open'); });
+    modalClose.focus();
+  }
+  function closeModal() {
+    modalPanel.classList.remove('open');
+    document.documentElement.style.overflow = '';
+    setTimeout(function () { modal.dataset.open = 'false'; }, reduceMotion ? 0 : 350);
+    if (lastTrigger) lastTrigger.focus();
+  }
+  document.querySelectorAll('[data-project]').forEach(function (card) {
+    card.addEventListener('click', function () { openModal(card); });
+  });
+  modalClose.addEventListener('click', closeModal);
+  modalBackdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.dataset.open === 'true') closeModal();
+  });
+})();
+</script>
+
+</body>
+</html>
